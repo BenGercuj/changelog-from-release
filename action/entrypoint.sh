@@ -6,8 +6,8 @@ set -e
 # https://github.blog/2022-04-12-git-security-vulnerability-announced/
 git config --global --add safe.directory /github/workspace
 
-# Ignore files on LFS (#24)
-export GIT_LFS_SKIP_SMUDGE=1
+# *Do not* ignore files on LFS
+export GIT_LFS_SKIP_SMUDGE=0
 
 cd "$GITHUB_WORKSPACE" || exit 1
 
@@ -71,7 +71,7 @@ if [ "$INPUT_COMMIT" = 'true' ]; then
     git show
 
     if [ "$INPUT_PUSH" = 'true' ] || [ "$INPUT_PULL_REQUEST" = 'true' ]; then
-        git push --force "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        git push "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
     fi
     if [ "$INPUT_PULL_REQUEST" = 'true' ]; then
         echo "${INPUT_GITHUB_TOKEN}" | gh auth login --with-token
