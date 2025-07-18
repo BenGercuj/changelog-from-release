@@ -1,4 +1,4 @@
-module github.com/BenGercuj/changelog-from-release/
+module github.com/BenGercuj/changelog-from-release
 
 go 1.23.0
 
