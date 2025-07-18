@@ -1,4 +1,4 @@
-module github.com/rhysd/changelog-from-release/v3
+module github.com/BenGercuj/changelog-from-release/
 
 go 1.23.0
 
