@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: master
-      - uses: BenGercuj/changelog-from-release/action@v3
+      - uses: BenGercuj/changelog-from-release/action@v1
         with:
           file: CHANGELOG.md
           github_token: ${{ secrets.GITHUB_TOKEN }}
